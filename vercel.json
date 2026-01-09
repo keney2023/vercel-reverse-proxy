@@ -1,24 +1,13 @@
 {
   "rewrites": [
-    // 1. HTTPS 代理（无尾斜杠）：处理 /proxy/https://example.com/api → https://example.com/api
-    {
-      "source": "/p/(https?:\\/\\/)?([^/]+)(/.*)?/:url*",  // 正则捕获：协议(可选)、主机、路径(可选)
-      "destination": "https://$2$3/:url*"  // $2=主机，$3=路径（去除协议后拼接）
+     {
+      "source": "/p/(https?:\\/\\/)?([^/]+)(/.*)?/:url*",  
+      "destination": "https://$2$3/:url*"
     },
-    // 2. HTTPS 代理（有尾斜杠）：处理 /proxy/https://example.com/api/ → https://example.com/api/
-    {
+        {
       "source": "/p/(https?:\\/\\/)?([^/]+)(/.*)?/:url*/",
       "destination": "https://$2$3/:url*/"
-    },
-    // 3. HTTP 代理（无尾斜杠）：处理 /httpproxy/http://internal.com/api → http://internal.com/api
-    {
-      "source": "/httpproxy/(https?:\\/\\/)?([^/]+)(/.*)?/:url*",
-      "destination": "http://$2$3/:url*"
-    },
-    // 4. HTTP 代理（有尾斜杠）：处理 /httpproxy/http://internal.com/api/ → http://internal.com/api/
-    {
-      "source": "/httpproxy/(https?:\\/\\/)?([^/]+)(/.*)?/:url*/",
-      "destination": "http://$2$3/:url*/"
     }
+   
   ]
 }
