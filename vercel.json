@@ -1,13 +1,8 @@
 {
   "rewrites": [
-     {
-      "source": "/p/(https?:\\/\\/)?([^/]+)(/.*)?/:url*",  
-      "destination": "https://$2$3/:url*"
-    },
-        {
-      "source": "/p/(https?:\\/\\/)?([^/]+)(/.*)?/:url*/",
-      "destination": "https://$2$3/:url*/"
-    }
-   
+    { "source": "/proxy/:match/:url*", "destination": "https://:match/:url*" },
+    { "source": "/proxy/:match/:url*/", "destination": "https://:match/:url*/" },
+    { "source": "/httpproxy/:match/:url*", "destination": "http://:match/:url*" },
+    { "source": "/httpproxy/:match/:url*/", "destination": "http://:match/:url*/" }
   ]
 }
